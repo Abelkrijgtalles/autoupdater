@@ -14,4 +14,10 @@ public final class AutoUpdater extends JavaPlugin {
     public void onDisable() {
         // Plugin shutdown logic
     }
+
+    public static void registerPlugin() {
+
+
+    }
+
 }
