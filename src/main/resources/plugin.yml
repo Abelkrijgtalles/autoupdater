@@ -2,7 +2,7 @@ name: AutoUpdater
 version: '${project.version}'
 main: nl.abelkrijgtalles.autoupdater.AutoUpdater
 api-version: '1.20'
-load: STARTUP
+load: POSTWORLD
 authors: [Abelpro678]
 description: A plugin and API that Automatically updates your Spigot Plugins.
 website: https://github.com/Abelkrijgtalles/autoupdater
