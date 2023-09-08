@@ -2,6 +2,9 @@ package nl.abelkrijgtalles.autoupdater;
 
 import org.bukkit.plugin.java.JavaPlugin;
 
+import nl.abelkrijgtalles.autoupdater.manager.PluginRegister;
+import nl.abelkrijgtalles.autoupdater.object.PluginRegisterResponse;
+
 public final class AutoUpdater extends JavaPlugin {
 
     @Override
@@ -15,8 +18,21 @@ public final class AutoUpdater extends JavaPlugin {
         // Plugin shutdown logic
     }
 
-    public static void registerPlugin() {
+    /**
+     * Register your plugin to AutoUpdater.
+     *
+     * @param pluginRegister The class that has implemented PluginRegister.
+     */
 
+    public static void registerPlugin(PluginRegister pluginRegister) {
+
+        PluginRegisterResponse response = pluginRegister.checkForUpdate();
+
+        if (response.doesNeedsUpdate()) {
+
+            String link = response.getDownloadURL();
+
+        }
 
     }
 
