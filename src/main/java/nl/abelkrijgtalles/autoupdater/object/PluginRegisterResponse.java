@@ -1,9 +1,13 @@
 package nl.abelkrijgtalles.autoupdater.object;
 
+import org.bukkit.plugin.Plugin;
+
 import java.net.MalformedURLException;
 import java.net.URL;
 
 public class PluginRegisterResponse {
+
+    private Plugin plugin;
 
     private boolean needsUpdate;
 
@@ -12,11 +16,13 @@ public class PluginRegisterResponse {
     /**
      * The response of RegisterPlugin.findPlugin().
      *
+     * @param plugin The plugin that registers itself.
      * @param needsUpdate Whether the plugin needs an update or not.
      * @param downloadURL The download link of the new jar-file.
      */
 
-    public PluginRegisterResponse(boolean needsUpdate, String downloadURL) {
+    public PluginRegisterResponse(Plugin plugin, boolean needsUpdate, String downloadURL) {
+        this.plugin = plugin;
         this.needsUpdate = needsUpdate;
         this.downloadURL = downloadURL;
     }
@@ -25,17 +31,19 @@ public class PluginRegisterResponse {
      * <b>This should only be used if the plugin doesn't need an update.</b>
      * The response of RegisterPlugin.findPlugin().
      *
+     * @param plugin The plugin that registers itself.
      * @param needsUpdate <b>This should be false.</b> Whether the plugin needs an update or not.
      * @throws IllegalArgumentException If needsUpdate is true.
      */
 
-    public PluginRegisterResponse(boolean needsUpdate) {
+    public PluginRegisterResponse(Plugin plugin, boolean needsUpdate) {
         if (needsUpdate) {
 
             throw new IllegalArgumentException("You can only call this method with one argument if needsUpdate is false. If the plugin needs and update, set needsUpdate to true and downloadURL to the jar file.");
 
         } else {
 
+            this.plugin = plugin;
             this.needsUpdate = false;
 
         }
@@ -90,5 +98,25 @@ public class PluginRegisterResponse {
         }
 
         this.downloadURL = downloadURL;
+    }
+
+    /**
+     * Get the plugin that registers itself.
+     *
+     * @return The object of the plugin.
+     */
+
+    public Plugin getPlugin() {
+        return plugin;
+    }
+
+    /**
+     * Set the plugin that registers itself.
+     *
+     * @param plugin The plugin that registers itself.
+     */
+
+    public void setPlugin(Plugin plugin) {
+        this.plugin = plugin;
     }
 }
