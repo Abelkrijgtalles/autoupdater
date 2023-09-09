@@ -7,7 +7,6 @@ A plugin and API that automatically updates your Spigot plugins.
 To use this library, simple add this into your `dependencies` in your `pom.xml`:
 
 `````xml
-
 <dependency>
     <groupId>nl.abelkrijgtalles</groupId>
     <artifactId>autoupdater</artifactId>
