@@ -1,5 +1,5 @@
 on:
-  registry_package
+  [ registry_package, workflow_dispatch ]
 jobs:
   javadocs:
     runs-on: ubuntu-latest
