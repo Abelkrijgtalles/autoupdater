@@ -4,16 +4,25 @@ jobs:
   javadocs:
     runs-on: ubuntu-latest
     steps:
+
+      - name: Create src folder
+        run: |
+          mkdir src
+          cd src
+
       - name: Checkout AutoUpdater
         uses: actions/checkout@v4
-        with:
-          path: "./src"
+
+      - name: Create docs folder
+        run: |
+          cd ..
+          mkdir docs
+          cd docs
 
       - name: Checkout AutoUpdater Javadocs
         uses: actions/checkout@v4
         with:
           repository: "abelkrijgtalles/autoupdater-javadocs"
-          path: "./docs"
 
       - name: Setup Maven
         uses: s4u/setup-maven-action@v1.9.0
@@ -22,7 +31,7 @@ jobs:
 
       - name: Generate Javadocs
         run: |
-          cd src
+          cd ../src
           mvn package
           mvn javadoc -d ../docs nl.abelkrijgtalles.autoupdater
           cd ..
