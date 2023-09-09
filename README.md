@@ -1,6 +1,6 @@
 # AutoUpdater
 
-A plugin and API that Automatically updates your Spigot Plugins.
+A plugin and API that automatically updates your Spigot plugins.
 
 ## Use this library
 
