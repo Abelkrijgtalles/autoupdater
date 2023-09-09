@@ -22,6 +22,6 @@ jobs:
 
       - name: Generate Javadocs
         run: |
-        cd src
-        javadoc -d ../docs nl.abelkrijgtalles.autoupdater
-        cd ..
+          cd src
+          javadoc -d ../docs nl.abelkrijgtalles.autoupdater
+          cd ..
