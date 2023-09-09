@@ -1,0 +1,27 @@
+on:
+  registry_package
+jobs:
+  javadocs:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout AutoUpdater
+        uses: actions/checkout@v4
+        with:
+          path: "src"
+
+      - name: Checkout AutoUpdater Javadocs
+        uses: actions/checkout@v4
+        with:
+          repository: "abelkrijgtalles/autoupdater-javadocs"
+          path: "docs"
+
+      - name: Setup Maven
+        uses: s4u/setup-maven-action@1.9.0
+        with:
+          java-version: 17
+
+      - name: Generate Javadocs
+        run: |
+        cd src
+        javadoc -d ../docs nl.abelkrijgtalles.autoupdater
+        cd ..
