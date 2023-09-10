@@ -6,7 +6,7 @@
 
     <groupId>nl.abelkrijgtalles</groupId>
     <artifactId>autoupdater</artifactId>
-    <version>1.0-PR-1</version>
+    <version>1.0-PR-2</version>
     <packaging>jar</packaging>
 
     <name>AutoUpdater</name>

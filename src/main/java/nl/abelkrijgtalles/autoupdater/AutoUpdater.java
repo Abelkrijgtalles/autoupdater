@@ -48,9 +48,10 @@ public final class AutoUpdater extends JavaPlugin {
             assert file != null;
             FileUtil.downloadFile(link, file.getPath());
 
-            pluginManager.enablePlugin(plugin);
-
             Bukkit.getLogger().info(plugin.getName() + " was successfully updated.");
+            Bukkit.getLogger().info("Reloading server.");
+
+            Bukkit.reload();
 
         }
 
