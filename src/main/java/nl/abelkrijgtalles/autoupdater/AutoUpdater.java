@@ -41,12 +41,16 @@ public final class AutoUpdater extends JavaPlugin {
 
             File file = FileUtil.getFileFromPlugin(plugin);
             String link = response.getDownloadURL();
+            String downloadLinkPath = response.getDownloadURL().split("/")[-1];
             PluginManager pluginManager = Bukkit.getPluginManager();
 
             pluginManager.disablePlugin(plugin);
 
             assert file != null;
-            FileUtil.downloadFile(link, file.getPath());
+            if (!file.delete()) {
+                Bukkit.getLogger().info("Failed to delete the old version of " + plugin.getName());
+            }
+            FileUtil.downloadFile(link, downloadLinkPath);
 
             Bukkit.getLogger().info(plugin.getName() + " was successfully updated.");
             Bukkit.getLogger().info("Reloading server.");
