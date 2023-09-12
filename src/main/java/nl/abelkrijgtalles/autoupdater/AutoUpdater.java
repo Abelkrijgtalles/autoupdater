@@ -1,5 +1,10 @@
 package nl.abelkrijgtalles.autoupdater;
 
+import nl.abelkrijgtalles.autoupdater.manager.PluginRegister;
+import nl.abelkrijgtalles.autoupdater.object.PluginRegisterResponse;
+import nl.abelkrijgtalles.autoupdater.util.FileUtil;
+import nl.abelkrijgtalles.autoupdater.util.ListUtil;
+
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.PluginManager;
@@ -7,10 +12,6 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 import java.io.File;
 import java.io.IOException;
-
-import nl.abelkrijgtalles.autoupdater.manager.PluginRegister;
-import nl.abelkrijgtalles.autoupdater.object.PluginRegisterResponse;
-import nl.abelkrijgtalles.autoupdater.util.FileUtil;
 
 public final class AutoUpdater extends JavaPlugin {
 
@@ -41,7 +42,7 @@ public final class AutoUpdater extends JavaPlugin {
 
             File file = FileUtil.getFileFromPlugin(plugin);
             String link = response.getDownloadURL();
-            String downloadLinkPath = response.getDownloadURL().split("/")[-1];
+            String downloadLinkPath = ListUtil.getLastString(response.getDownloadURL().split("/"));
             PluginManager pluginManager = Bukkit.getPluginManager();
 
             pluginManager.disablePlugin(plugin);
