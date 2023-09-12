@@ -10,6 +10,6 @@ To use this library, simple add this into your `dependencies` in your `pom.xml`:
 <dependency>
     <groupId>nl.abelkrijgtalles</groupId>
     <artifactId>autoupdater</artifactId>
-    <version>1.0-PR-2</version>
+    <version>1.0-PR-3</version>
 </dependency>
 `````
